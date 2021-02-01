@@ -7,10 +7,10 @@ class binarySeach {
     public static int performSearch(int[] input, int num){
         int start = 0;
         int end = input.length - 1;
-        int mid = (int) ((end - start) / 2) ;
+        int mid = (int) ((end + start) / 2) ;
 
         while (true) {        
-
+            // end of loop
             if (end == start) {
                 // number found
                 if(input[start] == num) {
@@ -24,11 +24,11 @@ class binarySeach {
             if (num < input[mid]) {
                 // look in left side of array
                 end = mid - 1;
-                mid = (int) ((end - start) / 2);            
+                mid = (int) ((end + start) / 2);            
             } else if (num > input[mid]) {
                 // look in right side of array
                 start = mid + 1;
-                mid = (int) ((end - start) / 2);
+                mid = (int) ((end + start) / 2);
             }  
             if(num == input[mid]) {
                 // number found
