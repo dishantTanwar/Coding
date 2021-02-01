@@ -8,29 +8,30 @@ class binarySeach {
         int start = 0;
         int end = input.length - 1;
         int mid = (int) ((end - start) / 2) ;
-        int result;
- 
+
         while (true) {        
- 
+
             if (end == start) {
+                // number found
                 if(input[start] == num) {
                     return start;
                 }
+                // not found
                 else {
                     return -1;
                 }
             }
             if (num < input[mid]) {
-                // number in left 
+                // look in left side of array
                 end = mid - 1;
                 mid = (int) ((end - start) / 2);            
             } else if (num > input[mid]) {
-                // number in right
+                // look in right side of array
                 start = mid + 1;
                 mid = (int) ((end - start) / 2);
             }  
             if(num == input[mid]) {
-                // number found 
+                // number found
                return  mid;
             }
         }
