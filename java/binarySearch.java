@@ -37,7 +37,24 @@ class binarySeach {
         }
 
     }
+    public static int binarySeachBetter(int[] input, int num) {
+        int start = 0;
+        int end = input.length;
+        while(start <= end) {
+            int mid = (int) ((start + end) / 2);
+            if (num > input[mid]) {
+                start = mid + 1;
+                mid = (int) ((start + end) / 2);
+            } else if (num < input[mid]) {
+                end = mid - 1;
+                mid = (int) ((start + end) / 2);
+            } else if (num == input[mid]) {
+                return mid;
+            }
+        }
 
+        return -1;
+    }
     public static void main(String[] args) {
         System.out.println("Hello, this program performs a Binary Search.");
         Scanner scanner = new Scanner(System.in);
@@ -55,11 +72,13 @@ class binarySeach {
         int num = scanner.nextInt();
 
         int result = performSearch(input, num);
+        int resultBetter = binarySeachBetter(input, num);
         scanner.close();
-        if(result == -1) {
+        if(result == -1 || resultBetter == -1) {
             System.out.println("Number not found");
         } else {
-            System.out.println("You num found in index: " + result);
+            System.out.println("You num found in index: (simple) " + result);
+            System.out.println("You num found in index: (better) " + resultBetter);
         }
     }   
 
