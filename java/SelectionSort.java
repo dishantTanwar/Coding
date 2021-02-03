@@ -24,19 +24,20 @@ class SelectionSort {
     // Better
     // 3 7 4 2 5 3 1 
     public static int[] selectionSortBetter(int[] input) {
-        int minIdx = -1;
         for (int i = 0; i < input.length - 1; i++) {
-
-            int min = Integer.MAX_VALUE;
+            
+            int min = input[i];
+            int minIdx = i;
             for (int j = i; j < input.length; j++) {
                 if (input[j] < min) {
                     min = input[j];
                     minIdx = j;
                 }
             }
-            int temp = input[i];
-            input[i] = min;
-            input[minIdx] = temp;
+            if (minIdx != i) {
+                input[minIdx] = input[i];
+                input[i] = min;
+            }
         }
         return input;
     }
