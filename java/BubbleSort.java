@@ -16,6 +16,19 @@ class BubbleSort {
         }
         return input;
     } 
+    // 7 1 5 2 4  3 12
+    public static int[] bubbleSortBetter(int[] input) {
+        for (int i = 0; i < input.length - 1; i++) {
+            for (int j = 0; j < i - 1; j++) {
+                if (input[j] > input[j+1]) {
+                    int temp = input[j];
+                    input[j] = input[j+1];
+                    input[j+1] = temp;
+                }    
+            }
+        }
+        return input;
+    }     
     public static void print(int[] input) {
         for(int i = 0; i < input.length; i++) {
             System.out.print(input[i] + " ");
@@ -38,7 +51,7 @@ class BubbleSort {
         System.out.println("Bubble sort normal");
         print(bubbleSort(input));
         System.out.println("Bubble sort better");
-        print(bubbleSort(input));
+        print(bubbleSortBetter(input));
 
         scanner.close();
     }
