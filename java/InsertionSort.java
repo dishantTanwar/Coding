@@ -25,6 +25,25 @@ class InsertionSort {
         return input;
         
     }
+//                  4 | 3 1 2 5
+//                  3 4 | 1 2 5
+//                  1 3 4 | 2 5
+//                  1 2 3 4 | 5
+//                  1 2 3 4 5 |
+
+
+    public static int[] insertionSortBetter(int[] input) {
+        for(int i = 1; i < input.length; i++) {
+            int numToInsert = input[i];
+            int lastSortedIndex = i - 1;
+
+            while (lastSortedIndex >= 0 && numToInsert < input[lastSortedIndex]) {
+                input[lastSortedIndex + 1] = input[lastSortedIndex];
+                lastSortedIndex--;
+            }
+        }
+        return input;
+    }
     public static void print(int[] input) {
         for(int i = 0; i < input.length; i++) {
             System.out.print(input[i] + " ");
@@ -47,7 +66,7 @@ class InsertionSort {
         System.out.println("Bubble sort normal");
         print(insertionSort(input));
         System.out.println("Bubble sort better");
-        print(insertionSort(input));
+        print(insertionSortBetter(input));
 
         scanner.close();
     }
