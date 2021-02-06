@@ -80,6 +80,7 @@ class binarySeach {
             System.out.println("You num found in index: (simple) " + result);
             System.out.println("You num found in index: (better) " + resultBetter);
         }
+        scanner.close();
     }   
 
 }
